@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body >
-    <audio id="audio" src="./chẳng giống giáng sinh - Lu ft. Willistic & datfitzx (Official Visualizer).mp3" autoplay></audio>
+<body>
+    <audio id="audio" src="./chẳng giống giáng sinh - Lu ft. Willistic & datfitzx (Official Visualizer).mp3"></audio>
 
     <div id="as" class="christmas-message">Merry Christmas</div>
     <div class="tree-container">
@@ -18,9 +18,7 @@
     </div>
 
     <div class="container">
-        <button id="showButton">
-            Thiệp nè
-        </button>
+        <button id="showButton">Thiệp nè</button>
     </div>
 
     <div id="guideInfo" class="hidden">
@@ -28,29 +26,37 @@
         <div id="ax" class="card">
             <div class="imgBox">
                 <div class="bark"></div>
-                <img
-                    src="card.png">
+                <img src="card.png">
             </div>
             <div class="details">
                 <h4 class="color margin">MERRY CHRISTMAS</h4>
                 <p>Hôm nay là giáng sinh rùi nè</p>
                 <p>Anh chúc em có mùa lễ ấm áp và</p>
-                <p>ngọt ngào như viên kẹo ngọt nhó</p>               
+                <p>ngọt ngào như viên kẹo ngọt nhó</p>
                 <p>Mong em sớm hết bệnh nhé ♥</p>
                 <p class="text-right">♥Giáng Sinh vui vẻ !♥</p>
-               
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
+
     <script>
-       document.body.addEventListener("click", function() {
-            var audio = document.getElementById("audio");
-            audio.currentTime = 10;
-            audio.play();
+        var audio = document.getElementById("audio");
+
+        // Đảm bảo nhạc bắt đầu từ giây thứ 10 và phát khi trang tải xong
+        window.onload = function () {
+            audio.currentTime = 10;  // Thiết lập thời gian bắt đầu từ giây thứ 10
+            audio.play();  // Phát nhạc khi trang được tải
+        };
+
+        // Ngừng phát lại nhạc khi click vào phần nào đó, nhưng không reset thời gian
+        document.body.addEventListener("click", function () {
+            if (audio.paused) {  // Kiểm tra nếu audio đang dừng
+                audio.play();  // Nếu audio dừng, phát lại từ điểm hiện tại
+            }
         });
     </script>
 
+    <script src="script.js"></script>
 </body>
 
 </html>
